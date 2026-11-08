@@ -12,6 +12,7 @@ import {
   IconSearch,
   IconSettings,
   IconUsers,
+  IconPhotoOff,
 } from "@tabler/icons-react";
 
 import { NavDocuments } from "@/components/nav-documents";
@@ -33,6 +34,7 @@ const data = {
   navMain: [
     { title: "Tổng quan", url: "/", icon: IconDashboard },
     { title: "Nhân vật", url: "/nhan-vat", icon: IconUsers },
+    { title: "Ảnh lỗi", url: "/tai-nguyen-thieu", icon: IconPhotoOff },
     { title: "Tài khoản", url: "#", icon: IconListDetails },
     { title: "Nạp thẻ", url: "#", icon: IconChartBar },
     { title: "Giftcode", url: "#", icon: IconFolder },

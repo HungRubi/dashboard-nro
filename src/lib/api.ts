@@ -88,3 +88,29 @@ export function getApiErrorMessage(err: unknown): string {
   }
   return "Có lỗi xảy ra, thử lại sau";
 }
+
+export type MissingAssetCategory = "items" | "npcs" | "maps";
+export interface MissingAssetReference {
+  category: MissingAssetCategory;
+  entityId: number;
+  entityName: string;
+  resourceId: number;
+  resourceType: "icon" | "map-data" | "tile-set" | "background";
+  role: string;
+  expectedPath: string;
+}
+export interface MissingAssetSummary {
+  resources: number;
+  references: number;
+  entities: number;
+}
+export interface MissingGameAssetsResponse {
+  scannedAt: string;
+  atlasImageCount: number;
+  summary: Record<MissingAssetCategory, MissingAssetSummary>;
+  items: MissingAssetReference[];
+}
+export async function fetchMissingGameAssets(): Promise<MissingGameAssetsResponse> {
+  const { data } = await api.get<MissingGameAssetsResponse>("/admin/missing-game-assets");
+  return data;
+}

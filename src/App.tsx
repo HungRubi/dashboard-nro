@@ -6,6 +6,7 @@ import ForbiddenPage from "@/pages/Forbidden";
 import LoginPage from "@/pages/Login";
 import DashboardPage from "@/pages/Dashboard";
 import PlayersPage from "@/pages/Players";
+import MissingAssetsPage from "@/pages/MissingAssets";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
             </RequireAdmin>
           }
         />
+        <Route path="/tai-nguyen-thieu" element={<RequireAdmin><MissingAssetsPage /></RequireAdmin>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Toaster />
